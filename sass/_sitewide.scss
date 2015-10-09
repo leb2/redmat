@@ -1,0 +1,203 @@
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+#RESConsoleContainer * {
+    box-sizing: content-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+.trending-subreddits, .sidebox.create .spacer, #hsts_pixel,
+#jumpToContent {
+    display: none;
+}
+.spacer {
+    margin: 0px !important;
+}
+
+.link.last-clicked {
+    border: none; /* No dashed lines! */
+    overflow: visible;
+}
+
+h2 {
+    font-size: 22px;
+    padding-left: 12px;
+    text-transform: capitalize;
+}
+
+.md {
+    color: #444;
+    font-size: $paragraph-text-size;;
+    font-family: $default-font-stack;
+}
+.md a, a {
+    color: #5777A8;
+
+}
+a:visited {
+    color: #8D5BA4;
+}
+.md a:hover, a:hover {
+    color: hsl(216, 31%, 65%);
+}
+
+button {
+    // @include button;
+    @include button-flat;
+}
+
+
+.content, .side {
+    textarea, input[type=url],
+    input[type=email], input[type=text],
+    input[type=password], input[type=email] {
+        padding: 12px;
+        border-radius: 0px;
+        border: none;
+        background: #FEFEFE;
+        transition: box-shadow 0.3s, background 0.3s;
+        font-family: $default-font-stack;
+        font-size: 14px;
+        @include lifted;
+
+        &:focus {
+            background: rgba(255, 255, 255, 1);
+            @include lifted(2);
+        }
+        &:disabled {
+            background: rgba(0, 0, 0, 0.1);
+            cursor: not-allowed;
+        }
+    }
+    textarea {
+        padding: 16px;
+    }
+}
+
+
+
+body {
+    position: relative;
+    flex-direction: row;
+    // padding: $header-height 0 0; /* Same as header and footer heights */
+    // @include background-image;
+    background-color: $background-accent;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-family: $default-font-stack;
+    color: #444;
+}
+body::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    // @include tile-image;
+    opacity: 0.4;
+    top: 0;
+}
+
+/* Pi symbol */
+.debuginfo {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.linkflairlabel, .flair {
+    margin: 0px;
+    margin-right: 4px;
+    padding: 2px 8px;
+    border-radius: 0px;
+    border: 1px solid #e7e7e7;
+    font-size: 10px;
+}
+.side .flair {
+    border-color: $well-border-color;
+}
+
+/* Drop down container for top, comments, etc. */
+.menuarea {
+    text-align: center;
+    border-bottom: none;
+    padding-top: 12px;
+}
+
+.listing-chooser {
+    display: none;
+}
+
+ul.tabmenu {
+    font-size: 13px;
+    margin: 0px;
+    display: inline-block;
+    max-width: 100%;
+    // white-space: normal;
+
+    li {
+        // height: 60px;
+        // line-height: 60px;
+        margin: 0px;
+        min-width: 60px;
+        display: inline-block;
+        transition: background 0.2s;
+
+        // &:hover {
+        //     background: rgba(255, 255, 255, 0.1);
+        //     border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+        // }
+
+        &.selected {
+            border-bottom: 2px solid $accent-color;
+
+            a {
+                background: transparent;
+                border: none;
+
+                /* Important for both submit page and normal page */
+                // color: #FF5252 !important; //#FF5C72 !important;
+                opacity: 1;
+            }
+        }
+
+        a {
+            font-weight: normal;
+            transition: opacity 0.2s;
+            // letter-spacing: 1px;
+            background: transparent;
+            color: white !important;
+            opacity: 0.7;
+            text-transform: uppercase;
+            padding: 0 24px 18px;
+
+            display: block;
+            height: 100%;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+/* Toolbar Styles */
+#tb-bottombar, #tb-bottombar * {
+    box-sizing: content-box;
+}
+
+#noresults {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 80px;
+    font-size: 25px;
+    font-weight: 100;
+    color: #BF4040;
+}

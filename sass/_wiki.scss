@@ -1,0 +1,76 @@
+/* Wiki Page styles */
+
+.wiki-page {
+
+    .infobar {
+        margin-bottom: 30px;
+    }
+
+    .wikititle {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-top: 40px;
+
+        strong {
+            font-weight: 100;
+            text-transform: uppercase;
+            font-size: 30px;
+        }
+    }
+
+    .pageactions {
+        margin: 0px;
+        height: auto;
+        height: initial;
+        width: 100%;
+        border-right: none;
+        border-left: none;
+        text-align: center;
+        padding: 0px;
+        height: 50px;
+        border-radius: 0px;
+        background: $well-bg;
+
+        a.wikiaction {
+            margin: 0px;
+            border-radius: 0px;
+            width: 90px;
+            padding: 0px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 300;
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+
+    .wiki-page-content {
+        padding: 100px;
+        padding-top: 20px;
+        width: 100%;
+        margin: 0px;
+        font-size: $paragraph-text-size;
+
+        p, li, em {
+            font-size: $paragraph-text-size;
+            font-family: $default-font-stack;
+        }
+
+        em {
+            color: #999;
+        }
+
+        .wiki > .toc > ul {
+            background: $well-bg;
+            border: $well-border;
+            font-size: 13px;
+            max-width: 400px;
+            padding: 16px 34px;
+
+            ul {
+                border-left: 1px solid #CCC;
+            }
+        }
+    }
+}

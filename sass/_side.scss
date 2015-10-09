@@ -1,0 +1,656 @@
+
+
+
+.side {
+    z-index: 1;
+    min-width: 0px;
+    width: $sidebar-width;
+    order: 10;
+    margin: 16px $side-margin 0 6px;
+    right: 0px;
+    position: relative;
+    background: none;
+
+    @media (max-width: $mobile-breakpoint) {
+        width: $sidebar-width-mobile;
+        margin-right: $side-margin-mobile;
+    }
+
+    .spacer {
+        padding: 0 25px;
+        overflow: hidden; // Prevent margin overflow
+        @include lifted;
+        background: #333;
+    }
+    .spacer:first-child {
+        padding-top: 30px;
+        padding-bottom: 12px;
+    }
+
+    // Last spacer in top box
+    body:not(.comments-page) & .spacer + .spacer + .spacer + .spacer,
+    body.submit-page & .spacer + .spacer,
+    body.search-page & .spacer + .spacer + .spacer,
+    body.comments-page & .spacer + .spacer + .spacer + .spacer + .spacer {
+        padding-bottom: 30px;
+        margin-bottom: 30px !important;
+
+        & + .spacer {
+            background: $panel-color;
+        }
+    }
+
+    // All panels after the main sidebar text panel
+    body:not(.comments-page) & .spacer:first-child + .spacer + .spacer + .spacer + .spacer,
+    body.submit-page & .spacer:first-child + .spacer + .spacer,
+    body.search-page & .spacer:first-child + .spacer + .spacer + .spacer,
+    body.comments-page & .spacer:first-child + .spacer + .spacer + .spacer + .spacer + .spacer {
+        padding: 0px;
+    }
+    // // Space between panels
+    // body:not(.comments-page) & .spacer + .spacer + .spacer + .spacer,
+    // body.submit-page & .spacer + .spacer
+    // body.comments-page & .spacer + .spacer + .spacer + .spacer + .spacer {
+    //     margin-bottom: 30px !important;
+    //
+    // }
+
+    // Titlebox spacer;
+
+
+
+    #login_login-main {
+        margin-top: 12px;
+        background: rgba(white, 0.3);
+        padding: 16px;
+        border: $well-border;
+
+        & > input { width: 100%;
+            margin: 4px 0;
+        }
+    }
+
+    #search {
+
+        input[type='text'] {
+            border: none;
+            padding: $well-padding;
+            width: 100%;
+        }
+        input[type='submit'] {
+            display: none;
+        }
+        input:focus {
+            // border: $well-border;
+        }
+
+        #searchexpando {
+            padding: $well-padding;
+            background: $well-bg;
+            border: 1px solid #DDD;
+            margin-bottom: 40px;
+
+            p {
+                margin: 0px;
+            }
+
+            #moresearchinfo {
+                color: #555;
+
+                #search_hidemore {
+                    letter-spacing: 4px;
+                }
+
+                p:first-of-type::first-letter {
+                    text-transform: uppercase;
+                }
+                p:last-child {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                dt {
+                    margin-top: 12px;
+                }
+            }
+
+        }
+    }
+
+    .linkinfo {
+        @include well;
+        margin-bottom: 3px;
+        color: #444;
+        text-align: center;
+        background: $panel-color;
+
+        .date {
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+
+            span {
+                font-size: 0px;
+
+                &::before {
+                    font-size: $paragraph-text-size;;
+                    content: 'Submitted on ';
+                }
+            }
+        }
+
+        .totalvotes {
+            font-size: $font-size-body;
+        }
+
+        .score {
+            font-weight: 300;
+
+            .number {
+                font-size: 35px;
+            }
+            .word {
+                text-transform: uppercase;
+            }
+        }
+
+        .shortlink {
+            text-transform: capitalize;
+            font-size: 0px;
+            margin-top: 12px;
+
+            input[type='text'] {
+                margin-left: 4px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .sidebox {
+        margin-top: 8px;
+
+        a {
+            letter-spacing: 1px;
+            @include button;
+            color: white;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            box-sizing: border-box;
+        }
+
+        // Create subreddit button
+        &.create {
+            display: none;
+        }
+
+        /* Post Link Button */
+        .morelink {
+            background: none;
+            height: initial;
+            height: auto;
+            border: none;
+        }
+
+        .nub {
+            display: none;
+        }
+    }
+
+    /* Subreddit specific sidebar info */
+    .titlebox {
+        text-align: left;
+        position: relative;
+        padding: 25px;
+        padding-top: 25px + $panel-header-height;
+
+        .md hr {
+            height: 1px;
+            margin: 12px 0;
+            color: #BBB;
+        }
+        .md blockquote {
+            margin-left: 12px;
+            border-left: 2px solid #BFBFBF;
+        }
+        h1.redditname {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            @include panel-heading;
+
+            a {
+                text-decoration: none;
+                font-weight: normal;
+                font-size: $font-size-headline;
+                color: white;
+            }
+        }
+
+
+        .fancy-toggle-button {
+            background: transparent;
+            height: 25px;
+            margin: 12px 0;
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+
+            // The subscribe button
+            a {
+                background-image: none;
+                transition: background 0.3s;
+                border-radius: 0px;
+                margin-right: 10px;
+                // padding: 5px 24px;
+                padding: 10px 30px;
+                text-transform: uppercase;
+                border: none;
+                font-weight: normal;
+                @include lifted;
+                background: $accent-color;
+                font-size: $font-size-button;
+
+                &:hover {
+                    @include lifted(2);
+                }
+
+                &.active {
+                    display: inline-block;
+                }
+            }
+        }
+
+        // RES only
+        .subButtons {
+            text-align: center;
+            margin: 12px 0;
+
+            span.RESshortcut, span.REStoggle {
+                display: inline-block;
+                background: none;
+                width: auto;
+                width: initial;
+                // background: rgba(#999, 0);
+                // font-weight: normal;
+                // text-transform: uppercase;
+                // font-size: 12px;
+                // color: #333;
+                // transition: background 0.2s;
+                // margin-bottom: 12px;
+                // padding: 10px 20px;
+
+                @include button-flat;
+
+                // &:hover {
+                //     background: rgba(#999, 0.2);
+                // }
+                // &:active {
+                //     background: rgba(#999, 0.4)
+                // }
+            }
+        }
+
+        /* Green dot for online */
+        .users-online {
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+
+            .number {
+                margin-right: 4px;
+            }
+
+            &::before {
+                background: #50914e;
+                border-radius: 50%;
+                height: 10px;
+                width: 10px;
+                display: inline-block;
+            }
+        }
+        form.flairtoggle {
+            background: none;
+        }
+        form.flairtoggle, .users-online {
+            color: #555;
+            font-size: 11px;
+        }
+
+        & > .tagline {
+            padding: 8px 12px;
+            display: table;
+            margin: 0 auto;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.4);
+            border: 1px solid #CCC;
+            margin-bottom: 24px;
+        }
+
+        .subscribers {
+            display: block;
+            text-align: center;
+            margin-bottom: 18px;
+            float: right;
+            color: #777;
+            font-size: 11px;
+        }
+
+        .leavemoderator,
+        form.leavecontributor-button {
+            background: $well-bg;
+            padding: $well-padding;
+            font-size: 11px;
+            border: $well-border;
+            color: $side-text-color;
+        }
+        .leavemoderator {
+            margin-top: 12px;
+            padding-bottom: $well-padding / 2;
+            border-bottom: none;
+        }
+        form.leavecontributor-button {
+            margin-bottom: 12px;
+            padding-top: $well-padding / 2;
+            border-top: none;
+        }
+
+        .bottom {
+            margin-top: 10px;
+            border-top: 1px solid $well-border-color;
+        }
+
+
+        /* All custom sidebar markdown stuff */
+        .usertext {
+            font-size: $font-size-body;
+
+            p, th, td, li {
+                font-size: $font-size-body;
+            }
+            pre, code {
+                font-size: $font-size-body - 1px;
+            }
+
+            p {
+                margin-top: 12px;
+            }
+
+            table {
+                th {
+                    background: rgba(black, 0.05);
+                }
+                th, td {
+                    border-color: $well-border-color;
+                }
+            }
+
+            pre {
+                @include well;
+            }
+
+            // Main title
+            h2 {
+                text-align: left;
+                margin-top: 40px;
+                font-weight: normal;
+                font-size: $font-size-title;
+
+                strong {
+                    font-weight: normal;
+                }
+            }
+
+
+            /*** Full Width Box ***/
+            h4 {
+                font-size: 15px;
+                background: $well-bg;
+                left: 14px;
+                top: 10px;
+                display: block;
+                margin-top: 12px;
+                padding: $side-panel-padding 0 0 $side-panel-padding;
+                font-weight: 100;
+                line-height: 20px;
+                margin: 0px -25px;
+                font-weight: normal;
+
+                & + blockquote {
+                    margin: 0px -25px 10px;
+                    border: medium none;
+                    background: $well-bg;
+                    padding: 16px;
+                    padding-left: $side-panel-padding;
+                    padding-right: $side-panel-padding;
+
+                    p {
+                        margin-top: 0px;
+                    }
+
+                    blockquote {
+                        max-height: 0px;
+                        transition: max-height 0.4s ease;
+                        overflow: hidden;
+                    }
+
+                    &:hover blockquote {
+                        max-height: 400px;
+                    }
+                }
+            }
+
+            /*** Custom Buttons ***/
+
+            /* h6 is reserved for buttons, hidden */
+            h6 {
+                display: none;
+
+                & + h1, & + h2,
+                & + h3, & + h5 {
+                    text-align: center;
+                    margin: 20px 0;
+                    padding: 0 30px;
+                    line-height: initial;
+
+                    a {
+                        @include lifted;
+                        font-size: $font-size-button;
+                        text-transform: uppercase;
+                        color: white;
+                        display: block;
+                        padding: 14px 24px;
+                        transition: all 0.3s;
+                        font-weight: normal;
+
+                        &:hover {
+                            @include lifted(2);
+                            transform: translateY(-2px);
+
+                        }
+                    }
+                }
+
+                /* Default Button */
+                & + h5 a {
+                    background: $primary-color-dark;
+                    &:hover {
+                        background: $primary-color;
+                    }
+                }
+                /* Blue Button */
+                & + h1 a {
+                    background: $blue-dark;
+                    &:hover {
+                        background: $blue;
+                    }
+                }
+                /* Green Button */
+                & + h2 a {
+                    background: $green-dark;
+                    &:hover {
+                        background: $green;
+                        text-decoration: none;
+                    }
+                }
+                /* Red Button */
+                & + h3 a {
+                    background: $red-dark;
+                    &:hover {
+                        background: $red;
+                    }
+                }
+            }
+        } // usertext
+    } // titlebox
+
+    #ad_main {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    .sidecontentbox {
+
+        // About moderators
+        li.more {
+            border-top: 1px solid $well-border-color;
+            padding-top: 3px;
+            margin-top: 8px;
+        }
+
+        .linkflairlabel {
+            display: none;
+        }
+
+        .title {
+            @include panel-heading;
+            margin-left: -$side-panel-padding - 2px;
+            margin-right: -$side-panel-padding - 2px;
+
+            h1 {
+                text-transform: lowercase;
+                font-size: $font-size-headline;
+                color: $panel-header-color;
+            }
+        }
+
+        .thing {
+            display: flex;
+            align-items: center;
+            min-height: 70px;
+            margin-bottom: 5px;
+        }
+        .content {
+            padding: 0px;
+            border: 0px;
+
+            .right a {
+                font-size: 0px;
+                &::after {
+                    font-size: 10px;
+                    content: '[ CLEAR ]';
+                }
+            }
+        }
+
+        .midcol {
+            margin-right: 3px;
+        }
+        .midcol .arrow {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .entry {
+            margin: 0px;
+            position: relative;
+            margin-right: 0px;
+        }
+        a.reddit-link-title {
+            font-weight: normal;
+            color: #555;
+            display: inline;
+            padding-bottom: 3px;
+            margin-bottom: 1px;
+            margin-right: 5px;
+            width: 100%;
+
+            &:hover {
+                color: #888;
+            }
+        }
+        .reddit-entry small {
+            font-size: 11px;
+
+            .score {
+                margin: 0px;
+            }
+        }
+    }
+
+    .account-activity-box {
+        text-transform: uppercase;
+    }
+    // Buttons on moderator page
+    .icon-menu a {
+        background: none;
+    }
+}
+
+.goldvertisement {
+    margin: 50px 0;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+
+    h2 {
+        padding: 4px;
+        text-align: center;
+        border-bottom: 1px solid #AAA;
+        text-transform: uppercase;
+        color: #444;
+        margin-bottom: 10px;
+        font-family: $default-font-stack;
+    }
+
+    .progress {
+
+        .bar {
+            border-radius: 0px;
+            border-color: #A19868;
+
+            span {
+                background-image: none;
+                border-radius: 0px;
+                background-color: #BFB57C;
+            }
+        }
+    }
+
+    .inner {
+        border: none;
+
+        a {
+            transition: background 0.3s;
+            box-sizing: content-box;
+            border: 1px solid #BFBFBF;
+            background: $well-bg;
+            padding: 3px 12px 2px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 0px;
+
+            margin: 0px;
+            color: #666;
+            text-transform: uppercase;
+            border-radius: 1px;
+
+            &::before {
+                content: "Support Reddit";
+                font-size: 9px;
+            }
+
+            &:hover {
+                background: white;
+            }
+        }
+
+    }
+}

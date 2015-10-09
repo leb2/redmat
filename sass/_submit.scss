@@ -1,0 +1,178 @@
+/* Submit Page Styles */
+
+.submit-page {
+
+    div.content {
+        text-align: center;
+        padding-top: 34px;
+        padding-bottom: 50px;
+
+        .md {
+            color: #666;
+        }
+
+        input, textarea {
+            border: 1px solid #DFDFDF;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #link-desc {
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        & > h1 {
+            font-size: 30px;
+            text-transform: capitalize;
+            margin: 0 auto;
+            width: 95%;
+            max-width: 550px;
+            text-align: left;
+            padding-left: 24px;
+            border-bottom: none;
+        }
+
+        form.content {
+            margin: 0px;
+            width: 100%;
+            max-width: 550px;
+            display: inline-block;
+
+            .formtabs-content {
+                width: 100%;
+                text-align: center;
+                border: none;
+
+                .spacer {
+                    display: inline-block;
+                    width: 100%;
+
+                    .roundfield {
+                        font-size: inherit;
+                        margin: 12px 0 !important;
+                        width: inherit;
+                        padding: $well-padding;
+                        padding-top: 0px;
+                        background: white;
+                        border-radius: 2px;
+                        @include lifted;
+                        color: #666;
+
+                        .usertext-edit {
+                            margin: 0 auto;
+                        }
+                        label {
+                            font-size: 13px;
+                        }
+
+                        #suggested-reddits h3 {
+                            margin-top: 16px;
+                            margin-bottom: 6px;
+                            text-transform: capitalize;
+                        }
+                        &#url-field #suggest-title {
+                            text-align: right;
+                            margin-top: 10px;
+
+                            button {
+                                margin: 0px;
+                                display: inline-block;
+                            }
+                        }
+
+                        /* Subreddit specific rules */
+                        &.submit_text {
+                            color: inherit;
+                            max-height: none;
+
+                            .content {
+                                text-align: left;
+                            }
+                            .md {
+                                font-size: inherit;
+
+                                & > h1, & > p {
+                                    text-align: center;
+                                }
+                                & > h1 {
+                                    font-size: 22px;
+                                    padding-bottom: 0px;
+                                    text-align: left;
+                                    border: none;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            h1, .spacer > .roundfield .title {
+                // color: #444;
+                // text-transform: capitalize;
+                // display: block;
+                // width: 100%;
+                // border-bottom: 1px solid #DDD;
+                // padding-bottom: 2px;
+                // margin-bottom: 10px;
+                // font-weight: 100;
+                // font-size: 18px;
+                // position: relative;
+                position: relative;
+                @include panel-heading;
+                margin-left: -$well-padding;
+                margin-right: -$well-padding;
+
+                .RESCharCounter {
+                    position: absolute;
+                    right: 16px;
+                    color: #DDD;
+                }
+            }
+
+            .tabmenu {
+                position: absolute;
+                z-index: 50;
+                left: 15px;
+                right: 15px;
+                top: -48px;
+                background: rgba(0,0,0,0.5);
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                padding: 0px;
+                text-align: center;
+
+                li {
+                    a {
+                        border: none;
+                        background: none;
+                    }
+                    &:selected a {
+                        font-size: inherit;
+                    }
+                }
+            }
+
+            .info-notice {
+                width: 80%;
+                font-size: 13px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            button[type=submit] {
+                // padding: 14px 80px;
+                // background: hsl(201, 25%, 40%);
+                // font-size: 18px;
+                // color: white;
+                // font-weight: 100;
+                // font-family: helvetica, verdana, arial, sans-serif;
+                // letter-spacing: 2px;
+                // margin-top: 40px;
+                // color: #EEE;
+                @include button;
+            }
+        }
+    }
+}

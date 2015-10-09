@@ -1,0 +1,317 @@
+
+#header {
+    width: 100%;
+    top: 0px;
+    background: $primary-color;
+    border-bottom: none;
+    height: $header-height;
+    z-index: 2;
+    @include lifted(2);
+    margin-bottom: 20px;
+
+    #header-bottom-left {
+        position: absolute;
+        bottom: 0px;
+
+        // left: $side-margin + $tab-bar-offset;
+        left: 56px; // 80px minus 24 px as per material design
+        text-align: left;
+
+        /* Need to push up redditname when no tabs */
+        // min-height: 48px;
+
+        /* Get rid of nbsp */
+        font-size: 0px;
+
+        /* Tabs being supplied elsewhere on submit page */
+        .submit-page & {
+            visibility: hidden;
+        }
+
+        #header-img {
+            display: none;
+
+            visibility: visible;
+            position: absolute;
+            left: -40px;
+            top: 57px - $header-height;
+            width: 64px;
+            height: 64px;
+
+            // background-position: -184px -4px;
+            @include sprite($icon-social-reddit);
+            margin-top: 10px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+
+            @media (max-width: $mobile-breakpoint) {
+                left: 4px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .redditname {
+            visibility: visible;
+            position: absolute;
+            height: 80px;
+            line-height: 80px;
+            width: 100%;
+            color: white;
+            // top: -150px;
+            top: 62px - $header-height;
+            text-align: left;
+            padding-left: 24px;
+
+            a {
+                color: white;
+                font-variant: none;
+                font-size: 34px;
+                font-weight: normal;
+                position: relative;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+                // Cookie Crumbs nav
+                .hot-page &::before, .new-page &::before, .rising-page &::before,
+                .controversial-page &::before, .top-page &::before, .wiki-page &::before {
+                    @include sprite($icon-chevron-right-small);
+                    right: -$icon-chevron-right-small-width - 14px;
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    bottom: 2px;
+                }
+                .hot-page &::after, .new-page &::after, .rising-page &::after,
+                .controversial-page &::after, .top-page &::after, .wiki-page &::after {
+                    left: 100%;
+                    padding-left: $icon-chevron-right-small-width + 28px;
+                    position: absolute;
+                    display: inline-block;
+                }
+                .hot-page &::after { content: 'Hot' }
+                .new-page &::after { content: 'New' }
+                .rising-page &::after { content: 'Rising' }
+                .controversial-page &::after { content: 'Controversial' }
+                .top-page &::after { content: 'Top' }
+                .wiki-page &::after { content: 'Wiki' }
+                .submit-page &::after { content: 'Submit' }
+                .search-page &::after { content: 'Search' }
+            }
+        }
+    }
+
+    #header-bottom-right {
+        position: absolute;
+        top: 25px;
+        bottom: initial;
+        background: transparent;
+        margin: 10px;
+        margin-right: 18px;
+        padding: 0px;
+
+        /* No one needs this right? */
+        .beta-hint[style],
+        .beta-hint {
+            display: none !important;
+        }
+
+        .message-count {
+            background: rgba(255, 92, 92, 0.63);
+        }
+
+        #userbarToggle {
+            border-radius: 0px;
+            background: rgba(60,60,60,0.8);
+            transition: background 0.2s, color 0.2s;
+            border: none;
+            width: 40px;
+            left: -40px;
+            text-align: center;
+            line-height: 35px;
+            padding: 0px;
+            font-size: 40px;
+            font-weight: 100;
+            color: #DDD;
+
+            &:hover {
+                color: #FFF;
+                background: rgba(60,60,60,0.9);
+            }
+        }
+
+        /* For RES Users */
+        &.res-navTop {
+            background: rgba(40,40,40,0.3);
+            margin-right: 0px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 11px;
+            font-weight: 100;
+
+            * {
+                text-transform: capitalize;
+                font-weight: normal;
+            }
+
+            a, a:visited {
+                color: white;
+            }
+
+            .separator {
+                margin: 0px 10px;
+                width: 1px;
+                height: 100%;
+                text-indent: 10px;
+                background: #999;
+            }
+
+            .message-count {
+                border-radius: 0px;
+                width: 30px;
+                text-align: center;
+                font-size: $paragraph-text-size;;
+                margin-left: 6px;
+            }
+
+            .user {
+                margin-left: 12px;
+            }
+
+            .logout {
+                margin-right: 12px;
+            }
+        }
+
+        // Hover dropdown menu
+        &:not(.res-navTop) {
+
+            a {
+                color: #FFF;
+                font-weight: 100;
+                font-size: 13px;
+            }
+
+            .separator {
+                top: 0px;
+                background: rgba(60,60,60,0.9);
+                width: 45px;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                display: block;
+
+                overflow: hidden;
+                font-size: 0px;
+
+                margin: 0px;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: -1;
+                border-radius: 2px;
+
+                &::before {
+                    content: '☰';
+                    color: white;
+                    font-size: 20px;
+                }
+
+                & ~ .separator {
+                    display: none;
+                    padding: $well-padding;
+                }
+            }
+            &:hover {
+                .separator {
+                    background: rgba(60,60,60,1);
+                }
+                .message-count {
+                    display: none;
+                }
+            }
+
+            $dropdown-items: "a#modmail", "a#mail", "ul", ".user", "form.logout";
+            $dropdown-anchors: "a#modmail", "a#mail", "ul a", ".user a", "form.logout a";
+
+            @each $anchor in $dropdown-anchors {
+                & > #{$anchor} {
+                    padding: 13px 40px;
+                    padding-right: 10px;
+                    display: inline-block;
+                    text-decoration: none;
+                }
+            }
+
+            @each $item in $dropdown-items {
+                &:hover > #{$item} {
+                    display: block;
+                }
+                & > #{$item} {
+                    display: none;
+                    margin: 0px;
+                    background: rgba(60,60,60,0.9);
+                    width: 100%;
+                    position: static;
+                    text-transform: capitalize;
+                }
+                & > #{$item}:hover {
+                    background: rgba(60,60,60,1);
+                }
+            }
+
+            #mail, #modmail {
+                text-indent: 0px;
+                height: initial;
+            }
+            .user {
+                margin-top: 50px;
+                padding-right: 55px;
+                font-size: 0px;
+            }
+
+            & > a#mail.havemail {
+                background: rgba(105, 38, 38, 0.6);
+
+                &:hover {
+                    background: rgba(105, 38, 38, 0.7);
+                }
+            }
+
+        }
+    }
+
+    // Subreddits lining top
+    #sr-header-area {
+        background: rgba(0,0,0,0.2);
+        border: none;
+        padding: 0 12px;
+        height: $sr-header-height;
+        line-height: $sr-header-height;
+        color: #AAA;
+
+        a, .dropdown.srdrop .selected {
+            color: #AAA;
+            height: $sr-header-height;
+            line-height: $sr-header-height;
+
+            &:hover {
+                color: #DDD;
+            }
+        }
+
+        #RESShortcutsEditContainer, #RESShortcutsEditContainer > * {
+            background: transparent;
+            color: #AAA;
+            height: $sr-header-height;
+            line-height: $sr-header-height;
+        }
+        #RESShortcutsEditContainer > *:hover {
+            color: #DDD;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+/* VARIABLES */
+
+// A box that contains text
+$well-bg: #DBDBDB; // #FAFAFA;
+$well-border-color: #BBB;
+$well-border: none;
+$well-padding: 16px; // 12px;
+$well-radius: 0px;
+$paragraph-text-size: 12px;
+
+$default-font-stack: roboto, noto, "Trebuchet MS", helvetica, arial, sans-serif;
+
+$header-height: 150px;
+
+// Space on the sides where the background is visible
+$side-margin: 35px;
+$side-margin-mobile: 0px;
+
+$tab-bar-offset: 25px;
+$tab-bar-offset-mobile: 8px;
+$sidebar-width: 340px;
+$sidebar-width-mobile: 280px;
+$comment-indent: 24px;
+
+// Height of topmost subreddit listing bar
+$sr-header-height: 24px;
+
+// Space between icons on item hover
+$corner-icon-spacing: 37px;
+
+// Space between sidebar and content
+$content-side-space: 0px;
+
+$side-bg: rgba(white, 0.8);
+$side-panel-padding: 24px;
+
+$background-accent: #F1F1F1;
+$panel-color: white;
+$card-border-radius: 2px;
+
+$mobile-breakpoint: 1150px;
+
+$blue: #3F7DB5;
+$blue-dark: #376E9E;
+$red: #B53F3F;
+$red-dark: #9F3030;
+$green: #3FB548;
+$green-dark: #379E40;
+
+$text-color: #333;
+$side-text-color: #4F4F4F;
+
+$primary-color: #3F51B5;
+$primary-color-dark: #303F9F;
+$accent-color: #FF5252;
+$accent-color-dark: #CC4343;
+$flat-button-color: #2196F3;
+
+$panel-header-height: 65px;
+$panel-header-color: white;
+
+/* Typography */
+$font-size-button: 14px;
+$font-size-body: 13px;
+$font-size-headline: 24px;
+$font-size-title: 20px;
+
+
+
+/* MIXINS */
+@mixin lifted($level: 1) {
+    @if $level == 1 {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);}
+    @if $level == 2 {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+    @if $level == 3 {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);}
+    @if $level == 4 {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+    @if $level == 5 {
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);}
+}
+
+@mixin well {
+    border: $well-border;
+    background: $well-bg;
+    padding: $well-padding;
+    border-radius: $well-radius;
+    font-size: $paragraph-text-size;
+}
+@mixin button {
+    box-sizing: content-box;
+    padding: 6px 16px;
+    outline: none;
+    border: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    border-radius: $card-border-radius;
+    background: $primary-color;
+    font-weight: normal;
+    font-size: $font-size-button;
+    color: white;
+    @include lifted;
+
+    &:hover {
+        @include lifted(2);
+        background: $primary-color-dark;
+        transform: translateY(-2px);
+    }
+}
+@mixin button-flat {
+    box-shadow: none;
+    background: rgba(#999, 0);
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: $font-size-button;
+    color: #333;
+    transition: background 0.2s;
+    margin-bottom: 12px;
+    border-radius: $card-border-radius;
+    border: none;
+    color: $flat-button-color;
+    min-width: 88px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0px 8px;
+    text-align: center;
+
+    &:hover {
+        background: rgba(#999, 0.2);
+        box-shadow: none;
+        transform: none;
+    }
+    &:active {
+        background: rgba(#999, 0.4)
+    }
+
+    &[disabled] {
+        background: none;
+        color: rgba(black, 0.26);
+    }
+}
+
+@mixin panel-heading {
+    font-size: $font-size-headline;
+    border-bottom: $well-border;
+    font-family: $default-font-stack;
+    height: $panel-header-height;
+    line-height: $panel-header-height;
+    background: $primary-color;
+    padding-left: $side-panel-padding;
+    margin: 0 0 $side-panel-padding 0;
+    display: block;
+    text-align: left;
+    border-radius: 0px;
+    color: white;
+    @include lifted(2);
+}

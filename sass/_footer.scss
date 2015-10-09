@@ -1,0 +1,42 @@
+.footer-parent {
+    // position: absolute;
+    // bottom: 0px;
+    // left: 0px;
+    // right: 0px;
+    // height: 300px;
+
+    .footer {
+        border-radius: 0px;
+        border: none;
+        background: rgba(255,255,255,0.1);
+
+        a {
+            color: #7D92B3;
+
+            &:first-letter {
+                text-transform: uppercase;
+            }
+            &:visited {
+                color: #A27DB3;
+            }
+            &.buygold {
+                font-weight: normal;
+            }
+        }
+
+        .col {
+            border-color: #666;
+
+            .title {
+                color: #CCC;
+                text-transform: uppercase;
+                font-weight: 100;
+                font-size: 14px;
+                text-align: center;
+                padding-bottom: 4px;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #777;
+            }
+        }
+    }
+}

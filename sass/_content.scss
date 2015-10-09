@@ -1,0 +1,623 @@
+
+body > .content {
+    z-index: 3;
+    position: relative;
+    border-radius: 2px;
+    margin: 0 0 0 $side-margin !important;
+
+    background: none;
+    overflow: hidden;
+    padding-bottom: 500px;
+
+    @media (max-width: $mobile-breakpoint) {
+        margin-left: $side-margin-mobile !important;
+    }
+}
+
+$tagline-height: 22px;
+
+#siteTable {
+    /* Needed to offset absolutely positioned nav buttons */
+    padding-bottom: 45px;
+
+    .thing {
+        @media (max-width: $mobile-breakpoint) {
+            padding: 8px;
+        }
+        margin: 16px 12px;
+
+        .entry {
+            @include lifted;
+            background: $panel-color;
+            padding: 12px 20px 18px;
+            overflow: visible;
+            position: relative;
+            // padding-right: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+
+            // In case not flex
+            margin-left: 150px;
+            border-radius: 1px;
+            transition: padding 0.2s, box-shadow 0.1s;
+
+            body:not(.comments-page) &:hover {
+                background: #FCFCFC;
+                padding-right: 120px;
+            }
+
+            &.RES-keyNav-activeElement {
+                @include lifted(2);
+                background: #FAFAFA !important;
+            }
+
+            @media (max-width: $mobile-breakpoint) {
+                margin-left: 120px;
+            }
+
+            // .res & {
+                // padding: 4px 10px 10px 12px;
+                // border-radius: 3px;
+            // }
+
+            .tagline {
+                height: $tagline-height;
+                line-height: $tagline-height;
+            }
+
+            /* Preview Content Button */
+            .expando-button {
+                height: 18px;
+                margin-top: 0px;
+                background: transparent;
+                margin-bottom: 0px;
+                cursor: pointer;
+                opacity: 0.6;
+                position: relative;
+
+                &.image,
+                &.video {
+                    @include sprite($icon-play-video);
+                    top: ($tagline-height - $icon-play-video-height) / 2;
+
+                    &:hover {
+                        @include sprite($icon-play-video-filled);
+                    }
+                }
+
+                &.selftext {
+                    @include sprite($icon-add-circle);
+                    top: ($tagline-height - $icon-play-video-height) / 2 - 1;
+
+                    &:hover {
+                        @include sprite($icon-add-circle-filled);
+                    }
+                }
+            }
+
+            .expando {
+                width: 100%;
+
+                .usertext-body .md {
+                    border: 1px solid #DDD;
+                    border-radius: 0px;
+                }
+            }
+
+            /* Form that shows up after you click report */
+            .report-action-form,
+            .post-sharing {
+                background: $well-bg;
+                border-radius: 0px;
+                padding: $well-padding;
+                max-width: none;
+                border: $well-border;
+                width: 100%;
+                margin: 12px;
+                margin-right: 65%;
+            }
+            .report-action-form {
+                .reason-prompt {
+                    padding-bottom: 1px;
+                    display: inline-block;
+                    padding-bottom: 2px;
+                    margin-bottom: 8px;
+                    border-bottom: 1px solid #DDD;
+                    width: 80%;
+                    font-weight: bold;
+
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+
+                label > input[type='radio'] {
+                    margin-right: 12px;
+                }
+                button[type='submit'] {
+                    margin-right: 6px;
+                }
+            }
+            .post-sharing .post-sharing-main {
+                pointer-events: none
+            }
+        }
+    }
+}
+
+
+.thing {
+    .rank {
+        display: none;
+    }
+    .midcol { /* Votes */
+        min-width: 40px !important;
+        margin: 0px;
+        overflow: visible;
+
+        .score {
+            font-weight: normal;
+            color: #757575;
+            position: relative;
+            top: 5px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .arrow {
+            color: #666;
+            font-size: 1.4em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            height: 25px !important;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.up {
+                @include sprite($icon-arrow-up);
+            }
+
+            &.down {
+                @include sprite($icon-arrow-down);
+            }
+            &.upmod {
+                @include sprite($icon-arrow-up-voted);
+                opacity: 1;
+            }
+            &.downmod {
+                @include sprite($icon-arrow-down-voted);
+                opacity: 1;
+            }
+        }
+        .arrow.upmod, .score.likes {
+            color: #B37159;
+        }
+        .arrow.downmod, .link .score.dislikes {
+            color: #5959B3;
+        }
+    }
+
+    .thumbnail {
+        // background: #85a4be;
+        background: $primary-color;
+        height: 70px !important;
+        min-width: 70px;
+        margin: 0 20px;
+        margin-top: 6px;
+
+        @media (max-width: $mobile-breakpoint) {
+            margin: 0 0 6px 0;
+        }
+        border-radius: 2px;
+        overflow: hidden;
+        text-align: center;
+        position: relative;
+
+        &::after, &.default::before, &.self::before, &.nsfw::before {
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            content: "";
+            overflow: hidden;
+        }
+        &.default, &.self, &.nsfw {
+            background-image: none;
+        }
+
+        &::after {
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        &:hover::after {
+            opacity: 0.2;
+        }
+
+        &.default::before {
+            @include sprite($icon-question);
+        }
+        &.self::before {
+            @include sprite($icon-discussion);
+        }
+        &.nsfw::before {
+            @include sprite($icon-warn);
+        }
+
+        img {
+            display: inline-block;
+            height: 100%;
+            width: auto;
+        }
+    }
+
+
+    // Entry not in main listing page
+    .entry {
+
+        /* When looking at preview of image */
+        & > .madeVisible {
+            display: block;
+            width: 100%;
+            margin: 30px;
+        }
+
+        p.title {
+            line-height: 20px;
+            padding: 7px 0;
+            margin: 5px 0 2px;
+            border-bottom: 1px solid #DDD;
+            padding-right: 30px;
+            width: 100%;
+
+            a.title {
+                color: #444;
+
+                &:hover {
+                    color: #5777A8;
+                }
+                &:visited {
+                    color: #666;
+
+                    &:hover {
+                        color: #8D5BA4;
+                    }
+                }
+            }
+        }
+
+        .tagline {
+            order: 2;
+            line-height: 12px;
+            font-size: 0px;
+            align-items: center;
+
+            /* Remove the word 'submitted' from the tagline */
+            time,
+            .author,
+            .RESUserTag {
+                font-size: 10px;
+                // position: relative;
+                // top: -1px;
+            }
+            time::after {
+                content: 'by';
+                padding: 0 3px;
+            }
+            /* User Flair */
+            .flair {
+                margin-left: 4px;
+                display: inline;
+            }
+        }
+
+        .linkflairlabel, .domain {
+            display: inline;
+        }
+
+        .domain, .domain a {
+            color: #BBB;
+            font-weight: 100;
+        }
+
+        .flat-list.buttons {
+            margin-right: 14px;
+            text-transform: uppercase;
+            height: $tagline-height;
+            line-height: $tagline-height;
+            padding: 0px;
+
+            // Yes or no dialogue for delete, flag, etc.
+            .option.error.active {
+                color: #212121;
+                position: absolute;
+                background: white none repeat scroll 0% 0%;
+                z-index: 999;
+                padding: 24px 8px 8px 24px;
+                @include lifted(3);
+                font-size: 0px;
+                width: 250px;
+                text-align: left;
+
+                &::before {
+                    content: "Are you sure?";
+                    font-size: 18px;
+                    display: block;
+                    margin-bottom: 4px;
+                }
+
+                a.yes, a.no {
+                    @include button-flat;
+                    display: inline-block;
+                    float: right;
+                    color: $flat-button-color;
+                }
+                a.yes {
+                    margin-right: 8px;
+                }
+            }
+
+            li.first {
+                text-transform: uppercase;
+                line-height: 18px;
+            }
+
+            li a {
+                font-weight: normal;
+                font-size: 10px;
+            }
+
+            /* NSFW Tag */
+            .nsfw-stamp {
+                border-radius: 1px;
+                color: #B93F4F;
+                border-color: #B93F4F;
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: $mobile-breakpoint) {
+
+    .loggedin.listing-page .thing {
+
+        /* Show/hide corner icons on link hover */
+        &:hover {
+            .flat-list.buttons {
+                li.share, li.share ~ li {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .flat-list.buttons {
+
+            // Corner button containers
+            li.share, li.share ~ li {
+                opacity: 0;
+
+                white-space: nowrap;
+                width: 15px;
+
+                position: absolute;
+                top: 10px;
+                text-align: center;
+                color: white;
+
+                /* Corner button icons */
+                &::after {
+                    opacity: 0.6;
+
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    right: 0px;
+                    bottom: 0px;
+                    text-align: center;
+                    // @include spritesheet;
+                    background-repeat: no-repeat;
+                    content: '';
+                    width: 18px;
+                    height: 18px;
+                    pointer-events: none;
+                    transition: opacity 0.15s;
+                }
+
+                /* Icons on hover */
+                &:hover::after {
+                    opacity: 1;
+                }
+
+                /* Tooltips */
+                a {
+                    opacity: 0;
+
+                    position: absolute;
+                    top: -20px;
+                    left: 0px;
+                    bottom: 0px;
+                    display: block;
+                    height: 40px;
+
+                    color: white;
+                    font-weight: 100;
+                    text-transform: uppercase;
+
+                    /* Can't have correct padding on tooltips without
+                    sacrificing perfect hover on icons */
+                    /*width: 18px;*/
+
+                    &:hover {
+                        text-decoration: none;
+                        opacity: 0.9;
+                    }
+
+                    // Background for tooltips
+                    &::after {
+                        content: "";
+                        border-radius: 2px;
+                        background: rgba(0,0,0,0.7);
+                        display: block;
+                        height: 22px;
+                        position: absolute;
+                        top: -3px;
+                        left: -7px;
+                        right: -7px;
+                        padding-right: 10px;
+                        z-index: -1
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    /* Cancel styles for extra buttons from res / toolbox / being moderator */
+    .res.loggedin.listing-page .thing .flat-list.buttons li.report-button + li,
+    .moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li,
+    .moderator.listing-page .thing .flat-list.buttons li.first + li:not(.share) {
+        opacity: 1;
+        position: static;
+        width: auto;
+        width: initial;
+    }
+
+    /* Cancel styles for mod/res anchor */
+    .moderator.listing-page .thing .flat-list.buttons li.share +li+li+li ~ li a {
+        opacity: 1;
+        position: static;
+        color: initial;
+        height: initial;
+        font-weight: initial;
+        color: #777;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    // .res.loggedin.listing-page .flat-list.buttons li.report-button + li::after,
+    .listing-page .flat-list.buttons li.share +li+li+li ~ li::after {
+        display: none;
+    }
+
+
+    .listing-page .flat-list.buttons li {
+
+        &.share { /* Share Button */
+            right: 20px + ($corner-icon-spacing * 3);
+            &::after {
+                // background-position: -4px -30px;
+                @include sprite($icon-share);
+            }
+        }
+
+        &.link-save-button,
+        &.link-unsave-button { /* Save Button */
+            right: 20px + ($corner-icon-spacing * 2);
+            &::after {
+                @include sprite($icon-star);
+            }
+        }
+
+        &.report-button { /* Report (Flag) Button */
+            right: 20px + $corner-icon-spacing;
+            &::after {
+                @include sprite($icon-flag);
+            }
+        }
+
+        &.share + li + li { /* Hide (Close) Button */
+            right: 20px;
+            &::after {
+                @include sprite($icon-close);
+            }
+        }
+    }
+
+
+    // Delete in place of report for moderator
+    .moderator.listing-page .flat-list.buttons li.share + li + li + li {
+        right: 20px + $corner-icon-spacing;
+
+        &::after {
+            @include sprite($icon-flag);
+            // background-position: -30px -80px;
+        }
+    }
+
+
+    /* For promoted page */
+    .content .infobar {
+        border: 1px solid #DDD;
+        background: $well-bg;
+        margin: 0 auto;
+        margin-top: 15px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Next page buttons */
+    .content .nav-buttons {
+        height: 50px;
+        line-height: 50px;
+        text-align: right;
+        padding-right: 30px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+
+        .nextprev a,
+        .next-suggestions a::before {
+            border-radius: 0px;
+            padding: 4px 12px;
+            font-weight: 100;
+            color: #444;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #AAA;
+            background: $well-bg;
+            transition: background 0.3s;
+
+        }
+        .nextprev a:hover,
+        .next-suggestions a:hover::before {
+            background: #CCC;
+        }
+        .nextprev a:active,
+        .next-suggestions a:active::before {
+            background: #BBB;
+        }
+
+        .nextprev {
+            text-transform: capitalize;
+            margin-right: 24px;
+
+            a {
+                text-transform: uppercase;
+            }
+        }
+        .next-suggestions a {
+            visibility: hidden;
+            font-size: 0px;
+
+            &::before {
+                visibility: visible;
+                font-size: $paragraph-text-size;;
+                content: 'Explore Subreddits';
+                margin-left: 4px;
+            }
+        }
+    }
+}
