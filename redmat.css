@@ -236,7 +236,7 @@ ul.tabmenu {
   height: 150px;
   z-index: 2;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-bottom: 20px; }
+  margin-bottom: 30px; }
   #header #header-bottom-left {
     position: absolute;
     bottom: 0px;
@@ -531,7 +531,7 @@ ul.tabmenu {
   -webkit-order: 10;
       -ms-flex-order: 10;
           order: 10;
-  margin: 16px 35px 0 6px;
+  margin: 0 35px 0 6px;
   right: 0px;
   position: relative;
   background: none;
@@ -603,9 +603,9 @@ ul.tabmenu {
     border-radius: 0px;
     font-size: 12px;
     margin-bottom: 3px;
-    color: #444;
+    color: #EEE;
     text-align: center;
-    background: white; }
+    background: none; }
     .side .linkinfo .date {
       padding-bottom: 3px;
       margin-bottom: 5px; }
@@ -1055,7 +1055,7 @@ body > .content {
   /* Needed to offset absolutely positioned nav buttons */
   padding-bottom: 45px; }
   #siteTable .thing {
-    margin: 16px 12px; }
+    margin: 0px 12px; }
     @media (max-width: 1150px) {
       #siteTable .thing {
         padding: 8px; } }
@@ -1078,8 +1078,8 @@ body > .content {
               align-items: flex-start;
       margin-left: 150px;
       border-radius: 1px;
-      -webkit-transition: padding 0.2s, box-shadow 0.1s;
-              transition: padding 0.2s, box-shadow 0.1s;
+      -webkit-transition: all 0.2s;
+              transition: all 0.2s;
       /* Preview Content Button */
       /* Form that shows up after you click report */ }
       body:not(.comments-page) #siteTable .thing .entry:hover {
@@ -1087,7 +1087,11 @@ body > .content {
         padding-right: 120px; }
       #siteTable .thing .entry.RES-keyNav-activeElement {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        background: #FAFAFA !important; }
+        background: #FAFAFA !important;
+        z-index: 20;
+        -webkit-transform: translateY(-2px);
+            -ms-transform: translateY(-2px);
+                transform: translateY(-2px); }
       @media (max-width: 1150px) {
         #siteTable .thing .entry {
           margin-left: 120px; } }
@@ -1272,9 +1276,9 @@ body > .content {
   .thing .entry p.title {
     line-height: 20px;
     padding: 7px 0;
-    margin: 5px 0 2px;
-    border-bottom: 1px solid #DDD;
+    margin: 0px;
     padding-right: 30px;
+    padding: 8px 30px 4px 0;
     width: 100%; }
     .thing .entry p.title a.title {
       color: #444; }

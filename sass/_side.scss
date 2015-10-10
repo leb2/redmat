@@ -6,7 +6,7 @@
     min-width: 0px;
     width: $sidebar-width;
     order: 10;
-    margin: 16px $side-margin 0 6px;
+    margin: 0 $side-margin 0 6px;
     right: 0px;
     position: relative;
     background: none;
@@ -119,9 +119,11 @@
     .linkinfo {
         @include well;
         margin-bottom: 3px;
-        color: #444;
+        // color: #444;
+        color: #EEE;
         text-align: center;
-        background: $panel-color;
+        // background: $panel-color;
+        background: none;
 
         .date {
             padding-bottom: 3px;
