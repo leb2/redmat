@@ -136,6 +136,10 @@ $comment-buttons-width: 600px;
     } // menuarea
 
 
+    & > .usertext {
+        overflow: visible;
+        margin-top: 20px;
+    }
 
     .usertext-edit {
         width: 80%;

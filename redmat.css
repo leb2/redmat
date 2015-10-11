@@ -1666,6 +1666,9 @@ body > .content {
         text-align: left; }
         .commentarea .menuarea .spacer .drop-choices a:hover {
           background: rgba(60, 60, 60, 0.95); }
+  .commentarea > .usertext {
+    overflow: visible;
+    margin-top: 20px; }
   .commentarea .usertext-edit {
     width: 80%;
     max-width: 600px;
