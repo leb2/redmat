@@ -13,6 +13,9 @@ body > .content {
         margin-left: $side-margin-mobile !important;
     }
 }
+body.listing-page > .content {
+    overflow: visible !important;
+}
 
 $tagline-height: 22px;
 
@@ -455,6 +458,8 @@ $tagline-height: 22px;
                     color: white;
                     font-weight: 100;
                     text-transform: uppercase;
+
+                    z-index: 30;
 
                     /* Can't have correct padding on tooltips without
                     sacrificing perfect hover on icons */

@@ -1054,6 +1054,9 @@ body > .content {
     body > .content {
       margin-left: 0px !important; } }
 
+body.listing-page > .content {
+  overflow: visible !important; }
+
 #siteTable {
   /* Needed to offset absolutely positioned nav buttons */
   padding-bottom: 45px; }
@@ -1430,6 +1433,7 @@ body > .content {
         color: white;
         font-weight: 100;
         text-transform: uppercase;
+        z-index: 30;
         /* Can't have correct padding on tooltips without
                     sacrificing perfect hover on icons */
         /*width: 18px;*/ }
