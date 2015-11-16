@@ -1054,9 +1054,6 @@ body > .content {
     body > .content {
       margin-left: 0px !important; } }
 
-body.listing-page > .content {
-  overflow: visible !important; }
-
 #siteTable {
   /* Needed to offset absolutely positioned nav buttons */
   padding-bottom: 45px; }
