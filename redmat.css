@@ -698,7 +698,7 @@ ul.tabmenu {
       text-align: left;
       border-radius: 0px;
       color: white;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
       .side .titlebox h1.redditname a {
         text-decoration: none;
         font-weight: normal;
@@ -944,7 +944,7 @@ ul.tabmenu {
     text-align: left;
     border-radius: 0px;
     color: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin-left: -26px;
     margin-right: -26px; }
     .side .sidecontentbox .title h1 {
@@ -1981,7 +1981,7 @@ body > .content {
       text-align: left;
       border-radius: 0px;
       color: white;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       margin-left: -16px;
       margin-right: -16px; }
       .submit-page div.content form.content h1 .RESCharCounter, .submit-page div.content form.content .spacer > .roundfield .title .RESCharCounter {
