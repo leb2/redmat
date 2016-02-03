@@ -1869,7 +1869,8 @@ body > .content {
 */
 .footer-parent {
   background: #333;
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  position: relative; }
   .footer-parent .footer {
     border-radius: 0px;
     border: none; }
