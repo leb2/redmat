@@ -99,7 +99,6 @@ button {
     background: rgba(153, 153, 153, 0.2);
     box-shadow: none;
     -webkit-transform: none;
-        -ms-transform: none;
             transform: none; }
   button:active {
     background: rgba(153, 153, 153, 0.4); }
@@ -658,7 +657,6 @@ ul.tabmenu {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         background: #303F9F;
         -webkit-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
                 transform: translateY(-2px); }
     .side .sidebox.create {
       display: none; }
@@ -759,7 +757,6 @@ ul.tabmenu {
           background: rgba(153, 153, 153, 0.2);
           box-shadow: none;
           -webkit-transform: none;
-              -ms-transform: none;
                   transform: none; }
         .side .titlebox .subButtons span.RESshortcut:active, .side .titlebox .subButtons span.REStoggle:active {
           background: rgba(153, 153, 153, 0.4); }
@@ -797,6 +794,8 @@ ul.tabmenu {
       background: rgba(255, 255, 255, 0.4);
       border: 1px solid #CCC;
       margin-bottom: 24px; }
+      .side .titlebox > .tagline .flairselector.active {
+        left: 0px !important; }
     .side .titlebox .subscribers {
       display: block;
       text-align: center;
@@ -905,7 +904,6 @@ ul.tabmenu {
             .side .titlebox .usertext h6 + h3 a:hover, .side .titlebox .usertext h6 + h5 a:hover {
               box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
               -webkit-transform: translateY(-2px);
-                  -ms-transform: translateY(-2px);
                       transform: translateY(-2px); }
         .side .titlebox .usertext h6 + h5 a {
           background: #303F9F; }
@@ -1093,7 +1091,6 @@ body > .content {
         background: #FAFAFA !important;
         z-index: 20;
         -webkit-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
                 transform: translateY(-2px); }
       @media (max-width: 1150px) {
         #siteTable .thing .entry {
@@ -1109,15 +1106,13 @@ body > .content {
         cursor: pointer;
         opacity: 0.6;
         position: relative; }
-        #siteTable .thing .entry .expando-button.image,
-        #siteTable .thing .entry .expando-button.video {
+        #siteTable .thing .entry .expando-button.image, #siteTable .thing .entry .expando-button.video {
           background-image: url(%%spritesheet%%);
           background-position: -126px -154px;
           width: 18px;
           height: 18px;
           top: 2px; }
-          #siteTable .thing .entry .expando-button.image:hover,
-          #siteTable .thing .entry .expando-button.video:hover {
+          #siteTable .thing .entry .expando-button.image:hover, #siteTable .thing .entry .expando-button.video:hover {
             background-image: url(%%spritesheet%%);
             background-position: -108px -154px;
             width: 18px;
@@ -1366,7 +1361,6 @@ body > .content {
           background: rgba(153, 153, 153, 0.2);
           box-shadow: none;
           -webkit-transform: none;
-              -ms-transform: none;
                   transform: none; }
         .thing .entry .flat-list.buttons .option.error.active a.yes:active, .thing .entry .flat-list.buttons .option.error.active a.no:active {
           background: rgba(153, 153, 153, 0.4); }
@@ -1477,12 +1471,10 @@ body > .content {
       background-position: -184px -18px;
       width: 18px;
       height: 18px; }
-  .listing-page .flat-list.buttons li.link-save-button,
-  .listing-page .flat-list.buttons li.link-unsave-button {
+  .listing-page .flat-list.buttons li.link-save-button, .listing-page .flat-list.buttons li.link-unsave-button {
     /* Save Button */
     right: 94px; }
-    .listing-page .flat-list.buttons li.link-save-button::after,
-    .listing-page .flat-list.buttons li.link-unsave-button::after {
+    .listing-page .flat-list.buttons li.link-save-button::after, .listing-page .flat-list.buttons li.link-unsave-button::after {
       background-image: url(%%spritesheet%%);
       background-position: -184px -54px;
       width: 18px;
@@ -1607,7 +1599,6 @@ body > .content {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         background: #303F9F;
         -webkit-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
                 transform: translateY(-2px); }
   .commentarea .menuarea {
     display: block;
@@ -1702,7 +1693,6 @@ body > .content {
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           background: #303F9F;
           -webkit-transform: translateY(-2px);
-              -ms-transform: translateY(-2px);
                   transform: translateY(-2px); }
       .commentarea .usertext-edit .bottom-area .usertext-buttons button {
         box-sizing: content-box;
@@ -1722,7 +1712,6 @@ body > .content {
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           background: #303F9F;
           -webkit-transform: translateY(-2px);
-              -ms-transform: translateY(-2px);
                   transform: translateY(-2px); }
   .commentarea > .sitetable > .comment {
     background: #DBDBDB;
@@ -1767,7 +1756,6 @@ body > .content {
         background: white !important;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         -webkit-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
                 transform: translateY(-2px);
         border-left-color: #3F51B5 !important; }
       .commentarea .comment .entry .flat-list.buttons {
@@ -2037,7 +2025,6 @@ body > .content {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         background: #303F9F;
         -webkit-transform: translateY(-2px);
-            -ms-transform: translateY(-2px);
                 transform: translateY(-2px); }
 
 /* Wiki Page styles */
@@ -2220,7 +2207,6 @@ li .flairselector.drop-choices.active {
         background: rgba(153, 153, 153, 0.2);
         box-shadow: none;
         -webkit-transform: none;
-            -ms-transform: none;
                 transform: none; }
       li .flairselector.drop-choices.active form button:active {
         background: rgba(153, 153, 153, 0.4); }

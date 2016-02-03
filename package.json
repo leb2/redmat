@@ -16,6 +16,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.0.4",
     "gulp-spritesmith": "0.0.2",
-    "gulp.spritesmith": "^4.1.1"
+    "gulp.spritesmith": "^4.1.1",
+    "node-sass": "^3.4.2"
   }
 }
