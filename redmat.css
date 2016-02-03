@@ -994,7 +994,8 @@ ul.tabmenu {
     .side .sidecontentbox .reddit-entry small .score {
       margin: 0px; }
   .side .account-activity-box {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    padding-top: 40px; }
   .side .icon-menu a {
     background: none; }
 
