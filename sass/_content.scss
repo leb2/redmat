@@ -27,6 +27,10 @@ $tagline-height: 22px;
         // margin: 16px 12px;
         margin: 0px 12px;
 
+        .thumbnail + .entry {
+            margin-left: 150px;
+        }
+
         .entry {
             @include lifted;
             background: $panel-color;
@@ -39,7 +43,7 @@ $tagline-height: 22px;
             align-items: flex-start;
 
             // In case not flex
-            margin-left: 150px;
+            margin-left: 60px;
             border-radius: 1px;
             // transition: padding 0.2s, box-shadow 0.1s;
             transition: all 0.2s;
