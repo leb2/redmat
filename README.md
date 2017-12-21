@@ -1,3 +1,5 @@
+_Note: Redmat is no longer being maintained and may no longer be 100% compatible with the current Reddit._
+
 # redmat #
 Google's Material Design for Reddit. [View the demo](http://reddit.com/r/redmat) for
 markup required to style the sidebar.
